@@ -1,7 +1,7 @@
 # coding: utf-8
 import unittest
 
-from pylambda.boolean import TRUE, FALSE, NOT, AND, OR, XOR, XNOR
+from pylambda.boolean import TRUE, FALSE, NOT, AND, OR, XOR, COND
 
 
 class TestBoolean(unittest.TestCase):
@@ -27,11 +27,9 @@ class TestBoolean(unittest.TestCase):
         self.assertEqual(XOR(FALSE)(TRUE), TRUE)
         self.assertEqual(XOR(FALSE)(FALSE), FALSE)
 
-    def test_xnor(self):
-        self.assertEqual(XNOR(TRUE)(TRUE), TRUE)
-        self.assertEqual(XNOR(TRUE)(FALSE), FALSE)
-        self.assertEqual(XNOR(FALSE)(TRUE), FALSE)
-        self.assertEqual(XNOR(FALSE)(FALSE), TRUE)
+    def test_cond(self):
+        self.assertEqual(COND(TRUE)(TRUE)(FALSE), TRUE)
+        self.assertEqual(COND(FALSE)(TRUE)(FALSE), FALSE)
 
 
 if __name__ == '__main__':

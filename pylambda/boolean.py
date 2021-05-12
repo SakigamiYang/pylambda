@@ -10,7 +10,7 @@ FALSE = lambda x: lambda y: y
 NOT = lambda x: x(FALSE)(TRUE)
 AND = lambda x: lambda y: x(y)(FALSE)
 OR = lambda x: lambda y: x(TRUE)(y)
-
-# additional boolean operations
 XOR = lambda x: lambda y: x(y(FALSE)(TRUE))(y(TRUE)(FALSE))
-XNOR = lambda x: lambda y: NOT(XOR(x)(y))
+
+# condition
+COND = lambda c: lambda x: lambda y: c(x)(y)
