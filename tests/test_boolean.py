@@ -1,10 +1,18 @@
 # coding: utf-8
 import unittest
 
-from pylambda.boolean import TRUE, FALSE, NOT, AND, OR, XOR, COND
+from pylambda.boolean import IDENTITY, TRUE, FALSE, NOT, AND, OR, XOR, IF
 
 
 class TestBoolean(unittest.TestCase):
+    def test_identity(self):
+        self.assertEqual(IDENTITY(TRUE), TRUE)
+        self.assertEqual(IDENTITY(FALSE), FALSE)
+
+    def test_bool(self):
+        self.assertEqual(TRUE(TRUE)(FALSE), TRUE)
+        self.assertEqual(FALSE(TRUE)(FALSE), FALSE)
+
     def test_not(self):
         self.assertEqual(NOT(TRUE), FALSE)
         self.assertEqual(NOT(FALSE), TRUE)
@@ -28,8 +36,8 @@ class TestBoolean(unittest.TestCase):
         self.assertEqual(XOR(FALSE)(FALSE), FALSE)
 
     def test_cond(self):
-        self.assertEqual(COND(TRUE)(TRUE)(FALSE), TRUE)
-        self.assertEqual(COND(FALSE)(TRUE)(FALSE), FALSE)
+        self.assertEqual(IF(TRUE)(TRUE)(FALSE), TRUE)
+        self.assertEqual(IF(FALSE)(TRUE)(FALSE), FALSE)
 
 
 if __name__ == '__main__':

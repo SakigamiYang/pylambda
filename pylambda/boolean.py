@@ -1,6 +1,5 @@
 # coding: utf-8
 IDENTITY = lambda x: x
-IF = IDENTITY
 
 # boolean values
 TRUE = lambda x: lambda y: x
@@ -13,4 +12,4 @@ OR = lambda x: lambda y: x(TRUE)(y)
 XOR = lambda x: lambda y: x(y(FALSE)(TRUE))(y(TRUE)(FALSE))
 
 # condition
-COND = lambda c: lambda x: lambda y: c(x)(y)
+IF = lambda c: lambda x: lambda y: c(x)(y)
