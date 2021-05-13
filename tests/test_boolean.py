@@ -6,12 +6,11 @@ from pylambda.boolean import IDENTITY, TRUE, FALSE, NOT, AND, OR, XOR, IF
 
 class TestBoolean(unittest.TestCase):
     def test_identity(self):
-        self.assertEqual(IDENTITY(TRUE), TRUE)
-        self.assertEqual(IDENTITY(FALSE), FALSE)
+        self.assertEqual(IDENTITY(1), 1)
 
     def test_bool(self):
-        self.assertEqual(TRUE(TRUE)(FALSE), TRUE)
-        self.assertEqual(FALSE(TRUE)(FALSE), FALSE)
+        self.assertEqual(TRUE(1)(0), 1)
+        self.assertEqual(FALSE(1)(0), 0)
 
     def test_not(self):
         self.assertEqual(NOT(TRUE), FALSE)
@@ -36,8 +35,8 @@ class TestBoolean(unittest.TestCase):
         self.assertEqual(XOR(FALSE)(FALSE), FALSE)
 
     def test_cond(self):
-        self.assertEqual(IF(TRUE)(TRUE)(FALSE), TRUE)
-        self.assertEqual(IF(FALSE)(TRUE)(FALSE), FALSE)
+        self.assertEqual(IF(TRUE)(1)(0), 1)
+        self.assertEqual(IF(FALSE)(1)(0), 0)
 
 
 if __name__ == '__main__':
