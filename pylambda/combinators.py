@@ -4,6 +4,17 @@ from .boolean import IDENTITY, TRUE
 # combinators
 
 # SKI combinator
+# All operations in lambda calculus can be encoded via abstraction elimination into the SKI calculus
+# as binary trees whose leaves are one of the three symbols S, K, and I (called combinators).
+#
+# But SKI system is not the minimum system, because I = SKK or SKS or (SK whatever).
+# But also, SK system is not the minimum system, if we define the iota combinator as
+#   ιx = xSK
+# we will get:
+#   I = SK(KK) = SSKK = ιSK = ιι,
+#   K = SKSK = ι(SK) = ι(ISK) = ι(ιιSK) = ι(ι(ιι)),
+#   S = KSK = ιK = ι(ι(ι(ιι)))
+
 # Ix = x
 I = IDENTITY
 # When applied to any argument x,

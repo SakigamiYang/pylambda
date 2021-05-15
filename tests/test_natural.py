@@ -6,7 +6,8 @@ from pylambda.helpers import decode_number
 from pylambda.natural import (ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN,
                               SUCC, PRED, ADD, SUB, MUL, EXP,
                               ISZERO, GTE, LTE, GT, LT, EQ,
-                              MIN, MAX)
+                              MIN, MAX,
+                              DIV, MOD, EVEN, ODD)
 
 
 class TestNatural(unittest.TestCase):
@@ -45,6 +46,15 @@ class TestNatural(unittest.TestCase):
         self.assertEqual(MIN(ONE)(TWO), ONE)
         self.assertEqual(MAX(FIVE)(THREE), FIVE)
         self.assertEqual(MAX(EIGHT)(EIGHT), EIGHT)
+
+    def test_more_arithmetic(self):
+        for f1, f2, n in zip([ONE, TWO, FOUR, SIX, FIVE], [ONE, ONE, TWO, TWO, TWO], [1, 2, 2, 3, 2]):
+            self.assertEqual(decode_number(DIV(f1)(f2)), n)
+        for f1, f2, n in zip([ONE, THREE, EIGHT], [ONE, TWO, THREE], [0, 1, 2]):
+            self.assertEqual(decode_number(MOD(f1)(f2)), n)
+        for f, b in zip([ZERO, ONE, TWO, THREE], [TRUE, FALSE, TRUE, FALSE]):
+            self.assertEqual(EVEN(f), b)
+            self.assertEqual(ODD(f), NOT(b))
 
 
 if __name__ == '__main__':

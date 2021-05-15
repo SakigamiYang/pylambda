@@ -1,8 +1,11 @@
 # coding: utf-8
-from .boolean import IDENTITY, TRUE, FALSE, AND
+from .boolean import IDENTITY, TRUE, FALSE, NOT, AND
+from .combinators import Y
 
 # arithmetic
 SUCC = lambda n: lambda f: lambda x: f(n(f)(x))
+# Because there are no negative numbers in the concept - "natural numbers",
+# any predecessor of ZERO are always ZERO.
 PRED = lambda n: n(lambda p: lambda z: z(SUCC(p(TRUE)))(p(TRUE)))(lambda z: z(ZERO)(ZERO))(FALSE)
 ADD = lambda m: lambda n: n(SUCC)(m)
 SUB = lambda m: lambda n: n(PRED)(m)
@@ -34,3 +37,21 @@ EQ = lambda m: lambda n: AND(GTE(m)(n))(LTE(m)(n))
 # advanced arithmetic
 MIN = lambda m: lambda n: LTE(m)(n)(m)(n)
 MAX = lambda m: lambda n: GTE(m)(n)(m)(n)
+
+# more arithmetic
+DIV = Y(
+    lambda f: lambda m: lambda n: LT(m)(n)
+    (lambda _: ZERO)
+    (lambda _: SUCC(f(SUB(m)(n))(n)))
+    (ZERO)
+)
+
+MOD = Y(
+    lambda f: lambda m: lambda n: LT(m)(n)
+    (lambda _: m)
+    (lambda _: f(SUB(m)(n))(n))
+    (ZERO)
+)
+
+EVEN = lambda n: ISZERO(MOD(n)(TWO))
+ODD = lambda n: NOT(EVEN(n))
