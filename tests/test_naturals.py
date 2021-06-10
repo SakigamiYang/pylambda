@@ -1,16 +1,16 @@
 # coding: utf-8
 import unittest
 
-from pylambda.boolean import TRUE, FALSE, NOT
+from pylambda.booleans import TRUE, FALSE, NOT
 from pylambda.helpers import decode_number
-from pylambda.natural import (ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN,
-                              SUCC, PRED, ADD, SUB, MUL, EXP,
-                              ISZERO, GTE, LTE, GT, LT, EQ,
-                              MIN, MAX,
-                              DIV, MOD, EVEN, ODD)
+from pylambda.naturals import (ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN,
+                               SUCC, PRED, ADD, SUB, MUL, EXP,
+                               ISZERO, GTE, LTE, GT, LT, EQ,
+                               MIN, MAX,
+                               DIV, MOD, EVEN, ODD)
 
 
-class TestNatural(unittest.TestCase):
+class TestNaturals(unittest.TestCase):
     def test_numbers(self):
         for f, n in zip([ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN], range(0, 11)):
             self.assertEqual(decode_number(f), n)

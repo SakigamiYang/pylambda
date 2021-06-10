@@ -1,5 +1,5 @@
 # coding: utf-8
-from .boolean import IDENTITY, TRUE, FALSE, NOT, AND
+from .booleans import IDENTITY, TRUE, FALSE, NOT, AND
 from .combinators import Y
 
 # arithmetic

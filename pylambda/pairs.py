@@ -1,5 +1,5 @@
 # coding: utf-8
-from .boolean import TRUE, FALSE
+from .booleans import TRUE, FALSE
 
 # pair
 PAIR = lambda x: lambda y: lambda z: z(x)(y)

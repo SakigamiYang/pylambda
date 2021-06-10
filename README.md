@@ -17,8 +17,7 @@ Implemented:
 3. Pairs
 4. Combinators
 5. Recursive functions
-6. Signed numbers
-7. Lists
+6. Lists
 
 ## Further reading
 

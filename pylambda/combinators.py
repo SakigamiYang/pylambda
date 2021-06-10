@@ -1,5 +1,5 @@
 # coding: utf-8
-from .boolean import IDENTITY, TRUE
+from .booleans import IDENTITY, TRUE
 
 # combinators
 

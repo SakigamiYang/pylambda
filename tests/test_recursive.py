@@ -2,7 +2,7 @@
 import unittest
 
 from pylambda.helpers import decode_number
-from pylambda.natural import ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN
+from pylambda.naturals import ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN
 from pylambda.recursive import FACT, FIB
 
 

@@ -1,10 +1,10 @@
 # coding: utf-8
 import unittest
 
-from pylambda.boolean import IDENTITY, TRUE, FALSE, NOT, AND, OR, XOR, IF
+from pylambda.booleans import IDENTITY, TRUE, FALSE, NOT, AND, OR, XOR, IF
 
 
-class TestBoolean(unittest.TestCase):
+class TestBooleans(unittest.TestCase):
     def test_identity(self):
         self.assertEqual(IDENTITY(1), 1)
 

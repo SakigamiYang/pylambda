@@ -1,10 +1,10 @@
 # coding: utf-8
 import unittest
 
-from pylambda.pair import PAIR, FIRST, SECOND
+from pylambda.pairs import PAIR, FIRST, SECOND
 
 
-class TestPair(unittest.TestCase):
+class TestPairs(unittest.TestCase):
     def test_pair(self):
         p = PAIR(1)(2)
         self.assertEqual(FIRST(p), 1)

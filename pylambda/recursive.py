@@ -1,6 +1,6 @@
 # coding: utf-8
 from .combinators import Y
-from .natural import PRED, ADD, MUL, ZERO, ONE, TWO, ISZERO, LTE
+from .naturals import PRED, ADD, MUL, ZERO, ONE, TWO, ISZERO, LTE
 
 # recursive
 FACT = Y(
